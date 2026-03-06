@@ -16,6 +16,6 @@
 
 ## Notes
 
-- Entry file: `src/server.js`
-- Vercel config points to `src/server.js`
+- Entry file: `server.js`
+- Vercel config points to `server.js`
 - Never commit `.env` (already ignored in `.gitignore`)

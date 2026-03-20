@@ -15,7 +15,13 @@ const DATABASE_URL = process.env.DATABASE_URL;
 const ADMIN_SECRET = process.env.ADMIN_SECRET || 'change-this-secret';
 
 // PostgreSQL connection
-const pool = new pg.Pool({ connectionString: DATABASE_URL, ssl: { rejectUnauthorized: false } });
+const pool = new pg.Pool({ 
+  connectionString: DATABASE_URL, 
+  ssl: { rejectUnauthorized: false },
+  max: 1,
+  idleTimeoutMillis: 10000,
+  connectionTimeoutMillis: 10000
+});
 
 // Initialize database tables
 async function initDB() {

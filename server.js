@@ -5,7 +5,14 @@ import OpenAI from 'openai';
 import pg from 'pg';
 
 const app = express();
-app.use(cors());
+app.use(cors({
+  origin: [
+    'https://world-wide-visie.myshopify.com',
+    'https://superrebelgear.com',
+  ],
+  methods: ['GET', 'POST', 'DELETE'],
+  allowedHeaders: ['Content-Type', 'Authorization']
+}));
 app.use(express.json());
 
 // Environment variables
